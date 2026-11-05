@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>New Style Apps</title>
+<meta name="description" content="New Style Apps makes Family Gift Cards, a private way to keep track of your family's gift cards.">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<main>
+  <header>
+    <div>
+      <h1>New Style Apps</h1>
+    </div>
+    <div class="lang" role="group" aria-label="Language / Idioma">
+      <button type="button" data-lang="en" aria-pressed="true">English</button>
+      <button type="button" data-lang="es" aria-pressed="false">Español</button>
+    </div>
+  </header>
+
+  <!-- ===================== ENGLISH ===================== -->
+  <div class="en">
+    <h2>Family Gift Cards</h2>
+    <p class="lead">Keep track of your family's gift cards in one place.</p>
+    <div class="summary">
+      <ul>
+        <li>Everything stays on your phone.</li>
+        <li>No account, no ads, no tracking.</li>
+        <li>Card numbers and PINs are encrypted.</li>
+        <li>Balances are estimates based on what you enter. The app doesn't check with stores.</li>
+      </ul>
+    </div>
+    <p>Coming soon for iPhone and Android.</p>
+    <nav class="links">
+      <a href="privacy/#en">Privacy Policy</a>
+      <a href="support/#en">Help &amp; Support</a>
+      <a href="mailto:newstyleapps@outlook.com">newstyleapps@outlook.com</a>
+    </nav>
+  </div>
+
+  <!-- ===================== ESPAÑOL ===================== -->
+  <div class="es">
+    <h2>Family Gift Cards</h2>
+    <p class="lead">Lleva el control de las tarjetas de regalo de tu familia en un solo lugar.</p>
+    <div class="summary">
+      <ul>
+        <li>Todo se queda en tu teléfono.</li>
+        <li>Sin cuenta, sin anuncios, sin rastreo.</li>
+        <li>Los números de tarjeta y los PIN se cifran.</li>
+        <li>Los saldos son estimados según lo que ingresas. La app no consulta con las tiendas.</li>
+      </ul>
+    </div>
+    <p>Próximamente para iPhone y Android.</p>
+    <nav class="links">
+      <a href="privacy/#es">Política de privacidad</a>
+      <a href="support/#es">Ayuda y soporte</a>
+      <a href="mailto:newstyleapps@outlook.com">newstyleapps@outlook.com</a>
+    </nav>
+  </div>
+
+  <footer>© New Style Apps</footer>
+</main>
+<script>
+  (function () {
+    var buttons = document.querySelectorAll('.lang button');
+    function setLang(lang) {
+      document.documentElement.lang = lang;
+      buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.lang === lang)); });
+    }
+    buttons.forEach(function (b) {
+      b.addEventListener('click', function () {
+        setLang(b.dataset.lang);
+        history.replaceState(null, '', b.dataset.lang === 'es' ? '#es' : '#en');
+      });
+    });
+    // Spanish via the link (…#es) or the browser's language.
+    var wanted = location.hash === '#es' || (location.hash !== '#en' && /^es\b/i.test(navigator.language || '')) ? 'es' : 'en';
+    setLang(wanted);
+  })();
+</script>
+</body>
+</html>
