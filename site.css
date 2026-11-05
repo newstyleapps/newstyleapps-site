@@ -60,6 +60,7 @@ th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-botto
 th { font-size: 14px; color: var(--muted); text-transform: uppercase; letter-spacing: .03em; }
 a { color: var(--primary); }
 footer { margin-top: 40px; color: var(--muted); font-size: 15px; }
+footer p { margin: 0 0 8px; }
 [lang="es"] .en, [lang="en"] .es { display: none; }
 @media (max-width: 480px) {
   table, thead, tbody, tr, th, td { display: block; }
